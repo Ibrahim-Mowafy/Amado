@@ -1,0 +1,94 @@
+<header>
+  <a class="logo" [routerLink]="['/home']">
+    <img src="assets/images/black-logo.png" alt="logo" />
+  </a>
+  <div class="right-side">
+    <div class="navigation menu-toggle">
+      <i mat-raised-button (click)="drawer.toggle()" class="bi bi-list"></i>
+      <ul>
+        <li>
+          <a routerLinkActive="active" [routerLink]="['/home']">Home</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" [routerLink]="['/shop']">Products</a>
+        </li>
+        <!-- <li><a routerLinkActive="active" [routerLink]="['/cart']">Cart</a></li> -->
+        <!-- <li>
+          <a (click)="onSaveData()">Save</a>
+        </li>-->
+        <!-- <li>
+          <a (click)="onFetchData()">fetch</a>
+        </li> -->
+        <!-- <li><a >Contact Us</a></li> -->
+        <!-- <li>
+          <a routerLinkActive="active" [routerLink]="['/checkout']">Checkout</a>
+        </li> -->
+        <li *ngIf="isAuthenticated">
+          <a routerLinkActive="active" [routerLink]="['/orders']">Orders</a>
+        </li>
+        <li class="cart">
+          <a class="bi bi-bag" [routerLink]="['/cart']"
+            ><span> {{ numberOfOrders }} </span></a
+          >
+        </li>
+        <li class="account">
+          <a *ngIf="isAuthenticated" [matMenuTriggerFor]="menu"
+            ><i class="bi bi-person"> </i>
+            <i class="bi bi-caret-down-fill"></i>
+          </a>
+          <a *ngIf="!isAuthenticated" [routerLink]="['/auth']"
+            ><i class="bi bi-person"> </i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngIf="isAuthenticated">
+    <mat-icon> edit </mat-icon>
+    <span>View Profile</span>
+  </button>
+  <button
+    mat-menu-item
+    class="text-danger"
+    *ngIf="isAuthenticated"
+    (click)="onLogout()"
+  >
+    <mat-icon style="color: #dc3545">logout</mat-icon>
+    <span> Logout </span>
+  </button>
+</mat-menu>
+
+<mat-drawer #drawer class="example-sidenav" mode="side">
+  <div class="close-btn" (click)="drawer.close()">
+    <a >
+      <i class="bi bi-x"></i>
+    </a>
+  </div>
+  <a class="logo" [routerLink]="['/home']">
+    <img src="assets/images/black-logo.png" alt="logo" />
+  </a>
+  <ul>
+    <li>
+      <a routerLinkActive="active" [routerLink]="['/home']">Home</a>
+    </li>
+    <li>
+      <a routerLinkActive="active" [routerLink]="['/shop']">Products</a>
+    </li>
+    <li *ngIf="isAuthenticated"><a>Orders</a></li>
+    <li class="cart">
+      <a [routerLink]="['/cart']" routerLinkActive="active"
+        >Cart<span> ({{ numberOfOrders }}) </span></a
+      >
+    </li>
+    <li class="accunt">
+      <a *ngIf="isAuthenticated" [matMenuTriggerFor]="menu"
+        >Account
+        <i class="bi bi-caret-down-fill"></i>
+      </a>
+      <a *ngIf="!isAuthenticated" [routerLink]="['/auth']">Account</a>
+    </li>
+  </ul>
+</mat-drawer>

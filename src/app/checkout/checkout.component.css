@@ -1,0 +1,66 @@
+section {
+  padding-top: 120px;
+}
+
+.checkbox {
+  color: #959595;
+}
+
+.cart-summary {
+  background-color: #f5f7fa;
+  margin-top: 67px;
+  position: relative;
+  z-index: 1;
+  padding: 30px 20px;
+}
+.cart-summary h5 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+.summary-table {
+  margin-top: 30px;
+  padding: 0;
+}
+.summary-table li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+.summary-table li .checkbox {
+  color: #959595;
+}
+.summary-table li span {
+  color: #6b6b6b;
+  font-size: 14px;
+}
+
+.payment-method label {
+  font-size: 14px;
+  color: #6b6b6b;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.amado-btn {
+  display: inline-block;
+  min-width: 160px;
+  height: 55px;
+  color: #ffffff;
+  border: none;
+  border-radius: 0;
+  padding: 0 7px;
+  font-size: 18px;
+  line-height: 56px;
+  background-color: #fbb710;
+  font-weight: 400;
+  transition: background-color 0.3s;
+}
+.amado-btn:hover {
+  background-color: rgb(231, 179, 21);
+}
+.amado-btn:disabled {
+  pointer-events: none;
+}
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #f5f7fa;
+}

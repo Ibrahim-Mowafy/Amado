@@ -1,0 +1,255 @@
+* {
+  /* margin: 0; */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+section {
+  padding-top: 120px;
+  display: flex;
+  position: relative;
+}
+
+.shop_sidebar_area {
+  width: 220px;
+  max-width: 220px;
+  padding: 40px;
+  background-color: #f5f7fa;
+}
+@media (max-width: 426px) {
+  .shop_sidebar_area {
+    width: 100%;
+    max-width: 100%;
+  }
+  section{
+    padding-top: 100px;
+    flex-direction: column;
+  }
+  .widget.brands ,.widget.color,.widget.price{
+    display: none;
+  }
+}
+.catagories-menu li a {
+  text-transform: capitalize;
+  font-size: 16px;
+  display: block;
+  padding: 15px 0 15px 20px;
+  color: #707070;
+  transition: color 0.3s;
+}
+
+.catagories-menu li.active a {
+  color: #fbb710;
+}
+.catagories-menu li:hover a {
+  color: #fbb710;
+}
+.form-check {
+  position: relative;
+  display: block;
+  /* padding-left: 1.25rem; */
+}
+.widget.brands .form-check {
+  margin-bottom: 25px;
+}
+.widget.brands .form-check .checkbox {
+  color: #707070;
+  transition: color 0.3s;
+}
+.widget.brands .form-check .checkbox:hover {
+  color: #fbb710;
+}
+.widget-desc ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.widget-desc ul li {
+  flex: 0 0 25%;
+  width: 25%;
+  margin-bottom: 15px;
+}
+
+.widget-desc ul li a {
+  width: 30px;
+  height: 30px;
+  display: block;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.widget-desc ul li:nth-child(1) a {
+  background-color: #fff;
+}
+.widget-desc ul li:nth-child(2) a {
+  background-color: #969696;
+}
+.widget-desc ul li:nth-child(3) a {
+  background-color: #030303;
+}
+.widget-desc ul li:nth-child(4) a {
+  background-color: #0315ff;
+}
+.widget-desc ul li:nth-child(5) a {
+  background-color: #dc0647;
+}
+.widget-desc ul li:nth-child(6) a {
+  background-color: #fff56a;
+}
+.widget-desc ul li:nth-child(7) a {
+  background-color: #f26e51;
+}
+.widget-desc ul li:nth-child(8) a {
+  background-color: #9a8777;
+}
+
+.product-list {
+  padding: 20px;
+  padding-right: 100px;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    padding: 20px;
+  }
+}
+.total-products .view a {
+  display: flex;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  background-color: #131212;
+  color: #fff;
+  font-size: 16px;
+  line-height: 44px;
+  justify-content: center;
+  align-items: center;
+}
+
+.total-products .view a.active {
+  background-color: #fbb710;
+}
+
+.product-sorting p {
+  margin-bottom: 0;
+  font-size: 14px;
+  height: 40px;
+  background-color: #f5f7fa;
+  line-height: 40px;
+  color: #959595;
+  padding-left: 15px;
+  margin-left: 15px;
+}
+.product-sorting form select {
+  background-color: #f5f7fa;
+  border: none;
+  height: 40px;
+  min-width: 80px;
+}
+.product-sorting form option {
+  font-size: 12px;
+  font-weight: 400;
+  /* color: #959595; */
+  text-transform: uppercase;
+  background-color: #f5f7fa;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .products-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+.form-field {
+  width: 100px;
+  /* border-top:none; */
+}
+.form-field-select {
+  border-top: none;
+}
+::ng-deep.mat-checkbox-frame {
+  border-color: #959595;
+}
+::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #f5f7fa;
+}
+
+/* SEARCH BAR */
+
+.search-box {
+  background: #f5f7fa;
+  height: 50px;
+  /* border-radius: 50px; */
+  z-index: 100;
+}
+
+.search-btn {
+  color: #959595;
+  float: right;
+  width: 50px;
+  height: 50px;
+  /* border-radius: 50%; */
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width 2s;
+}
+
+.bi-search {
+  font-size: 20px;
+}
+
+.search-input {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #959595;
+  font-size: 20px;
+  transition: 0.4s;
+  line-height: 50px;
+  width: 0;
+}
+.search-input::placeholder {
+  font-weight: 300;
+}
+.search-box:hover > .search-input {
+  width: 225px;
+  padding: 0 20px;
+}
+@media (max-width: 700px) {
+  .search-box:hover > .search-input {
+    width: 150px;
+    padding: 0 20px;
+  }
+}
+@media (max-width: 400px) {
+  .search-box:hover > .search-input {
+    width: 100px;
+    padding: 0 20px;
+  }
+}
+/* END SEARCH BAR */

@@ -1,0 +1,141 @@
+<section>
+  <div class="container">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <div class="cart-title mb-4">
+            <h2>Checkout</h2>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>First Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. Ahmed"
+                  formControlName="firstName"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Last Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. Ahmed"
+                  formControlName="lastName"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. Ahmed@exmaple.com"
+                  formControlName="email"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address" required />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Town</mat-label>
+                <input matInput formControlName="town" required />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Zip Code</mat-label>
+                <input
+                  matInput
+                  formControlName="zipCode"
+                  required
+                  type="number"
+                  placeholder="1234"
+                  min="0"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Phone No</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  placeholder="555-555-1234"
+                  formControlName="phoneNumber"
+                  required
+                  min="0"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Comment</mat-label>
+                <textarea
+                  name="comment"
+                  id="comment"
+                  cols="30"
+                  rows="4"
+                  placeholder="Leave a comment about your order"
+                  spellcheck="false"
+                  matInput
+                  formControlName="comment"
+                ></textarea>
+              </mat-form-field>
+            </div>
+            <div class="col-12">
+              <div class="">
+                <mat-checkbox
+                  class="checkbox"
+                  formControlName="checkbox"
+                  required
+                  >I agree to the Terms of User
+                </mat-checkbox>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="cart-summary">
+            <h5>Cart Total</h5>
+            <ul class="summary-table">
+              <li>
+                <span>subtotal:</span> <span>${{ totalPrice }}</span>
+              </li>
+              <li><span>delivery:</span> <span>Free</span></li>
+              <li>
+                <span>total:</span> <span>${{ totalPrice }}</span>
+              </li>
+              <li>
+                <mat-checkbox class="checkbox">Cash on delivery</mat-checkbox>
+              </li>
+            </ul>
+            <div class="cart-btn mt-100">
+              <button
+                class="amado-btn w-100"
+                type="submit"
+                mat-raised-button
+                [disabled]="!checkoutForm.valid"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- <div class="" *ngIf="isAuthenticated">
+  <p>test</p>
+</div> -->

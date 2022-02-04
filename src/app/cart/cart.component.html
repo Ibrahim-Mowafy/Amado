@@ -1,0 +1,130 @@
+<section>
+  <div class="container">
+    <div class="cart-table-area">
+      <div class="row" *ngIf="cartItems.length != 0">
+        <div class="col-12 col-lg-8 px-md-3">
+          <div class="cart-title">
+            <h2>Shopping Cart</h2>
+          </div>
+          <div class="cart-table clearfix">
+            <table class="table table-responsive">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cartItem of cartItems">
+                  <td class="cart_product_img">
+                    <a>
+                      <img
+                        class="img-fluid"
+                        [src]="cartItem.imagePath"
+                        [alt]="cartItem.name"
+                        [routerLink]="['/shop/' + cartItem.id]"
+                    /></a>
+                  </td>
+                  <td class="cart_product_desc">
+                    <h5 [routerLink]="['/shop/' + cartItem.id]">
+                      {{ cartItem.name }}
+                    </h5>
+                  </td>
+                  <td class="price">
+                    <span>${{ cartItem.price }}</span>
+                  </td>
+                  <td class="qty">
+                    <div class="qty-btn d-flex align-items-center">
+                      <p>Qty</p>
+                      <div class="quantity">
+                        <span
+                          class="qty-minus"
+                          (click)="onDecrementQuantity(cartItem)"
+                          *ngIf="cartItem.quantity != 1"
+                          ><i class="bi bi-dash-lg"></i>
+                          <!-- <i  *ngIf="cartItem.quantity==1" class="bi bi-trash"></i> -->
+                        </span>
+                        <input
+                          type="number"
+                          class="qty-text"
+                          id="qty"
+                          min="1"
+                          max="10"
+                          maxlength="2"
+                          name="quantity"
+                          [value]="cartItem.quantity"
+                        />
+                        <span
+                          class="qty-plus"
+                          (click)="onIncrementQuantity(cartItem)"
+                          ><i class="bi bi-plus-lg" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                      <span class="remove-btn d-flex justify-content-center">
+                        <i
+                          matTooltip="Remove Product"
+                          matTooltipPosition="below"
+                          (click)="onRemoveCartItem(cartItem)"
+                          class="bi bi-trash"
+                        >
+                        </i>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 px-md-3">
+          <div class="cart-summary">
+            <h5>Cart Total</h5>
+            <ul class="summary-table">
+              <li>
+                <span>subtotal:</span> <span>${{ totalPrice }}</span>
+              </li>
+              <li><span>delivery:</span> <span>Free</span></li>
+              <li>
+                <span>total:</span> <span>${{ totalPrice }}</span>
+              </li>
+            </ul>
+            <div class="cart-btn mt-100">
+              <a
+                mat-raised-button
+                class="amado-btn w-100"
+                [routerLink]="isAuthenticated ? ['/checkout'] : ['/auth']"
+              >
+                Checkout</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="cartItems.length == 0">
+        <div class="col-sm-12">
+          <div class="cart-title text-center">
+            <h2>Your Shopping Cart is Empty</h2>
+          </div>
+          <div
+            class="empty-cart-container d-flex flex-column align-items-center"
+          >
+            <img
+              class="img-fluid img-empty-cart"
+              src="assets/images/undraw_empty_cart_co35.svg"
+              alt="Shopping Cart is Empty"
+            />
+            <button
+              mat-raised-button
+              class="amado-btn mt-3 px-5"
+              [routerLink]="['/shop']"
+            >
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

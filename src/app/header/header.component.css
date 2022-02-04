@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+header {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 999;
+}
+
+header .logo {
+  position: relative;
+  display: inline-flex;
+}
+
+.right-side {
+  display: flex;
+}
+.navigation ul {
+  display: flex;
+  align-items: center;
+}
+
+.navigation li a {
+  color: rgb(95, 95, 95);
+  margin-left: 25px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+.navigation .cart a {
+  font-size: 2rem;
+  position: relative;
+}
+
+.navigation .cart a span {
+  font-size: 1.1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  font-weight: 500;
+}
+.navigation .cart a:hover span {
+  animation-name: number-of-cart;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes number-of-cart {
+  0% {
+    transform: translate(-50%, -35%);
+  }
+  50% {
+    transform: translate(-50%, -10%);
+    opacity: 0.2;
+  }
+  75% {
+    opacity: 0.2;
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    transform: translate(-50%, -35%);
+    opacity: 1;
+  }
+}
+
+.navigation li a:hover {
+  color: #fbb710;
+}
+.navigation li a.active {
+  color: #fbb710;
+}
+.navigation i {
+  font-size: 2rem;
+  color: #fbb710;
+  cursor: pointer;
+}
+
+@media (min-width: 786px) {
+  .navigation i.bi-list {
+    display: none;
+  }
+}
+@media (max-width: 786px) {
+  header {
+    padding: 20px 30px;
+  }
+  .navigation li a {
+    display: none;
+  }
+}
+.navigation-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  z-index: 4;
+}
+.navigation-mobile li a {
+  display: inline-flex;
+  margin: 5px 0;
+  font-size: 1.25em;
+  text-decoration: none;
+  color: #000;
+  padding: 5px 20px;
+}
+/* .navigation-mobile li a:hover {
+
+} */
+.account a {
+  position: relative;
+}
+.account i {
+  color: rgb(95, 95, 95);
+  transition: color 0.3s;
+}
+.account a:hover i {
+  color: #fbb710;
+}
+.account a::before {
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 1px;
+  background-color: rgb(95, 95, 95);
+  bottom: 0;
+  left: -8px;
+}
+
+.account .bi-caret-down-fill {
+  position: absolute;
+  top: 50%;
+  font-size: 15px;
+  transform: translateY(-40%);
+}
+
+.example-sidenav {
+  position: fixed;
+  z-index: 999;
+}
+
+.example-sidenav .close-btn {
+  background-color: #fbb710;
+  position: absolute;
+  right: 15px;
+  padding: 7px;
+  font-size: 1.5rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.example-sidenav .close-btn:hover {
+  background-color: #131212;
+}
+.example-sidenav .close-btn i {
+  color: #fff;
+}
+.example-sidenav .logo {
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.example-sidenav ul {
+  margin-top: 70px;
+  padding: 55px;
+}
+
+.example-sidenav ul li {
+  padding: 15px;
+  transition: all 0.3s;
+}
+.example-sidenav ul li a {
+  position: relative;
+  font-size: 1.2rem;
+  color: rgb(95, 95, 95);
+  transition: color 0.3s;
+}
+.example-sidenav ul li:hover a {
+  color: #fbb710;
+}
+.example-sidenav ul li a::before {
+  transition-duration: 500ms;
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  margin-top: -1.5px;
+  left: -150px;
+  background-color: #fbb710;
+  z-index: 9;
+  content: "";
+}
+.example-sidenav ul li:hover a::before {
+  left: -66px;
+}
+.example-sidenav ul li a.active::before {
+  left: -66px;
+}
+.example-sidenav ul li a.active {
+  color: #fbb710;
+}

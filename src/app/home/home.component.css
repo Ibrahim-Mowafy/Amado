@@ -1,0 +1,71 @@
+.main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  user-select: none;
+  mix-blend-mode: screen;
+}
+
+.social-icons {
+  position: absolute;
+  right: 100px;
+  bottom: 40px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.social-icons a i {
+  color: #b5b5b5;
+  font-size: 1.75rem;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.social-icons a:hover i {
+  color: #fbb710;
+}
+
+.copy-right {
+  position: absolute;
+  left: 100px;
+  bottom: 30px;
+  z-index: 4;
+  font-size: 1.2em;
+  color:#b5b5b5;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 20px;
+  }
+  .social-icons {
+    right: 20px;
+    bottom: 20px;
+  }
+  .copy-right {
+    left: 20px;
+    bottom: 20px;
+  }
+
+}

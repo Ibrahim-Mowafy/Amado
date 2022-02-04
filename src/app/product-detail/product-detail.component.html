@@ -1,0 +1,135 @@
+<section>
+  <div class="single-product-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li [routerLink]="['/home']" class="breadcrumb-item">
+                <a>Home</a>
+              </li>
+              <li [routerLink]="['/shop']" class="breadcrumb-item d-flex">
+                <a>{{ product.category }}</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{ product.name }}
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-7">
+          <div class="single_product_thumb">
+            <div id="product_details_slider" class="carousel slide">
+              <ol class="carousel-indicators">
+                <li
+                  [class.active]="product.imagesDetails[displayImage] == image"
+                  [style]="'background-image: url(' + image + ');'"
+                  *ngFor="let image of product.imagesDetails; let i = index"
+                  (mouseenter)="displayImage = i"
+                ></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    class="d-block w-100"
+                    [src]="product.imagesDetails[displayImage]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="single_product_desc">
+            <!-- Product Meta Data -->
+            <div class="product-meta-data">
+              <div class="line"></div>
+              <p class="product-price">${{ product.price }}</p>
+              <a>
+                <h6>{{ product.name }}</h6>
+              </a>
+              <!-- Ratings & Review -->
+              <div
+                class="
+                  ratings-review
+                  mb-1
+                  d-flex
+                  align-items-center
+                  justify-content-between
+                "
+              >
+                <div class="ratings">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <div class="review">
+                  <a>Write A Review</a>
+                </div>
+              </div>
+              <!-- Available -->
+              <p class="availability">
+                <i class="bi bi-circle-fill"></i>
+                In Stock
+              </p>
+            </div>
+
+            <div class="short_overview my-5">
+              <p>
+                {{ product.description }}
+              </p>
+            </div>
+
+            <!-- Add to Cart Form -->
+            <form class="cart clearfix">
+              <div class="cart-btn d-flex mb-5" *ngIf="product.isSelected">
+                <p>Qty</p>
+                <div class="quantity">
+                  <span class="qty-minus" *ngIf="product.quantity != 1"
+                    ><i
+                      (click)="onDecrementQuantity(product)"
+                      class="bi bi-caret-down-fill"
+                      aria-hidden="true"
+                    ></i
+                  ></span>
+                  <input
+                    type="number"
+                    class="qty-text"
+                    id="qty"
+                    step="1"
+                    min="1"
+                    max="300"
+                    name="quantity"
+                    [value]="product.quantity"
+                  />
+                  <span class="qty-plus"
+                    ><i
+                      (click)="onIncrementQuantity(product)"
+                      class="bi bi-caret-up-fill"
+                      aria-hidden="true"
+                    ></i
+                  ></span>
+                </div>
+              </div>
+              <button
+                type="button"
+                name="addtocart"
+                mat-raised-button
+                class="amado-btn"
+                (click)="onAddToCart()"
+                *ngIf="!product.isSelected"
+              >
+                Add to cart
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

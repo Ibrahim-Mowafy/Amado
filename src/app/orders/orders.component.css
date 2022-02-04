@@ -1,0 +1,7 @@
+section {
+  padding-top: 150px;
+  display: flex;
+}
+.img-empty-cart {
+  max-width: 40%;
+}

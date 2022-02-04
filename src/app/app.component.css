@@ -1,0 +1,9 @@
+.notifier__container {
+  position: fixed;
+  z-index: 99999;
+}
+
+::ng-deep.mat-drawer-container {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.87);
+}

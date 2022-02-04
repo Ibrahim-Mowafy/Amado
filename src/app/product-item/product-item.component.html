@@ -1,0 +1,63 @@
+<div class="single-product-wrapper">
+  <!-- Product Image -->
+  <div class="product-img">
+    <img
+      class="img-fluid"
+      [src]="product.imagePath"
+      alt="product image"
+      (click)="onShowProductDetail()"
+    />
+  </div>
+
+  <!-- Product Description -->
+  <div
+    class="
+      product-description
+      d-flex
+      align-items-center
+      justify-content-between
+    "
+  >
+    <!-- Product Meta Data -->
+    <div class="product-meta-data">
+      <div class="line"></div>
+      <p class="product-price">$ {{ product.price }}</p>
+      <a>
+        <h6 (click)="onShowProductDetail()">{{ product.name }}</h6>
+      </a>
+    </div>
+    <!-- Ratings & Cart -->
+    <div class="ratings-cart">
+      <div class="ratings">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+      </div>
+      <div class="cart">
+        <a
+          *ngIf="!product.isSelected"
+          matTooltip="Add to Cart"
+          matTooltipPosition="left"
+          (click)="handleAddToCart()"
+        >
+          <img src="assets/images/cart-icon.png" alt="" />
+        </a>
+        <a
+          *ngIf="product.isSelected"
+          matTooltip="Product already in your cart"
+          matTooltipPosition="left"
+          class="checked-product"
+        >
+          <!-- <i class="bi bi-plus"></i> -->
+          <!-- class="stable"
+          [class.rotate]="product.isSelected" -->
+          <!-- [ngClass]="product.isSelected ? 'rotate' : 'stable'" -->
+          <img class="rotate" src="assets/images/001-check-mark.png" alt="" />
+          <!-- <i class="bi bi-dash"></i> -->
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

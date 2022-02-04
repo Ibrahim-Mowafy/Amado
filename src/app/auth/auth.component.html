@@ -1,0 +1,118 @@
+<section>
+  <div class="container shadow-lg" [ngClass]="isLoginMode ? 'active' : ''">
+    <!-- SIGN IN  -->
+    <div class="user signinBox">
+      <!-- IMAGE BOX -->
+      <div class="imgBox">
+        <img
+          src="../../assets/images/pexels-emre-can-acer-2079249.jpg"
+          alt="Black Chair"
+        />
+      </div>
+      <!-- FORM BOX -->
+      <div class="formBox">
+        <div class="spinner-container" *ngIf="isLoading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <form
+          [formGroup]="longInForm"
+          (ngSubmit)="onLogInSubmit()"
+          *ngIf="!isLoading"
+        >
+          <h2>Sign In</h2>
+          <mat-form-field appearance="fill" class="w-100 mt-3">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Ex. Ahmed@example.com"
+              required
+              type="email"
+              formControlName="email"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              required
+              type="password"
+              formControlName="password"
+            />
+          </mat-form-field>
+          <button
+            class="btn submit"
+            [disabled]="!longInForm.valid"
+            mat-raised-button
+          >
+            Login
+          </button>
+          <p class="signup">
+            Don't have an account ? <a (click)="toggleForm()">Sign up.</a>
+          </p>
+        </form>
+      </div>
+    </div>
+    <!-- SIGN UP -->
+    <div class="user signupBox">
+      <!-- FORM BOX -->
+      <div class="formBox">
+        <div class="spinner-container" *ngIf="isLoading">
+          <app-loading-spinner></app-loading-spinner>
+        </div>
+        <form
+          [formGroup]="sinUpForm"
+          (ngSubmit)="onSignupSubmit()"
+          *ngIf="!isLoading"
+        >
+          <h2>Create an account</h2>
+          <mat-form-field appearance="fill" class="w-100 mt-3">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Ex. Ahmed@example.com"
+              required
+              type="email"
+              formControlName="email"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              required
+              formControlName="password"
+              type="password"
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Confirm Password</mat-label>
+            <input
+              matInput
+              required
+              formControlName="confirmPassword"
+              type="password"
+            />
+          </mat-form-field>
+          <button
+            class="btn submit"
+            [disabled]="!sinUpForm.valid"
+            mat-raised-button
+          >
+            Sign Up
+          </button>
+          <p class="signup">
+            Already have an account ?
+            <a (click)="toggleForm()">Sign in.</a>
+          </p>
+        </form>
+      </div>
+      <!-- IMAGE BOX -->
+      <div class="imgBox">
+        <img
+          src="../../assets/images/pexels-anna-nekrashevich-8989497.jpg"
+          alt="Black Chair"
+        />
+      </div>
+    </div>
+  </div>
+</section>

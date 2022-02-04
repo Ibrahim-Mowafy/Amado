@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/angular-notifier/styles.css";
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]:focus,
+input[type="number"]:focus {
+  outline: none;
+}

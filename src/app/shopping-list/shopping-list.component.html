@@ -1,0 +1,174 @@
+<section>
+  <div class="shop_sidebar_area">
+    <!-- ##### Single Widget ##### -->
+    <div class="widget catagory mb-md-5">
+      <!-- Widget Title -->
+      <h6 class="widget-title mb-4">Catagories</h6>
+
+      <!--  Catagories  -->
+      <div class="catagories-menu">
+        <ul>
+          <li (click)="filter('All')" [class.active]="activeCategory == 'All'">
+            <a>All</a>
+          </li>
+          <li
+            (click)="filter('Chairs')"
+            [class.active]="activeCategory == 'Chairs'"
+          >
+            <a>Chairs</a>
+          </li>
+          <li
+            (click)="filter('Beds')"
+            [class.active]="activeCategory == 'Beds'"
+          >
+            <a>Beds</a>
+          </li>
+          <li
+            (click)="filter('Accessories')"
+            [class.active]="activeCategory == 'Accessories'"
+          >
+            <a>Accessories</a>
+          </li>
+          <li
+            (click)="filter('Furniture')"
+            [class.active]="activeCategory == 'Furniture'"
+          >
+            <a>Furniture</a>
+          </li>
+          <li
+            (click)="filter('Lighting')"
+            [class.active]="activeCategory == 'Lighting'"
+          >
+            <a>Lighting</a>
+          </li>
+          <li
+            (click)="filter('Decoration')"
+            [class.active]="activeCategory == 'Decoration'"
+          >
+            <a>Decoration</a>
+          </li>
+          <li
+            (click)="filter('Tables')"
+            [class.active]="activeCategory == 'Tables'"
+          >
+            <a>Tables</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ##### Single Widget ##### -->
+    <div class="widget brands mb-4">
+      <!-- Widget Title -->
+      <h6 class="widget-title mb-4">Brands</h6>
+
+      <div class="widget-desc">
+        <!-- Single Form Check -->
+        <div class="form-check">
+          <mat-checkbox class="checkbox">Amado</mat-checkbox>
+        </div>
+        <!-- Single Form Check -->
+        <div class="form-check">
+          <mat-checkbox class="checkbox">Ikea</mat-checkbox>
+        </div>
+        <!-- Single Form Check -->
+        <div class="form-check">
+          <mat-checkbox class="checkbox">Furniture Inc</mat-checkbox>
+        </div>
+        <!-- Single Form Check -->
+        <div class="form-check">
+          <mat-checkbox class="checkbox">factory</mat-checkbox>
+        </div>
+        <!-- Single Form Check -->
+        <div class="form-check">
+          <mat-checkbox class="checkbox"> Artdeco </mat-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <!-- ##### Single Widget ##### -->
+    <div class="widget color mb-5">
+      <!-- Widget Title -->
+      <h6 class="widget-title mb-4">Color</h6>
+
+      <div class="widget-desc">
+        <ul class="d-flex">
+          <li><a class="color1"></a></li>
+          <li><a class="color2"></a></li>
+          <li><a class="color3"></a></li>
+          <li><a class="color4"></a></li>
+          <li><a class="color5"></a></li>
+          <li><a class="color6"></a></li>
+          <li><a class="color7"></a></li>
+          <li><a class="color8"></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ##### Single Widget ##### -->
+    <div class="widget price mb-5">
+      <!-- Widget Title -->
+      <h6 class="widget-title mb-3">Price</h6>
+
+      <div class="widget-desc">
+        <div class="slider-range">
+          <div>
+            <div class="ui-slider-range ui-widget-header ui-corner-all">
+              <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+            </div>
+            $10 - $1000
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-list">
+    <div class="container-fluid products-header">
+      <div class="total-products mb-4">
+        <p>Showing 1-8 of 25</p>
+        <div class="view d-flex">
+          <a class="active" (click)="toggleView()"
+            ><i class="bi bi-grid-fill"></i
+          ></a>
+          <a class="" (click)="toggleView()"><i class="bi bi-list"></i></a>
+        </div>
+      </div>
+      <div class="product-sorting d-flex mb-2">
+        <div class="sort-by-date d-flex align-items-center">
+          <form class="search-form position-relative">
+            <div class="search-box">
+              <input
+                class="search-input"
+                type="text"
+                name=""
+                placeholder="Search"
+                id="searchInput"
+                [(ngModel)]="searchKey"
+                name="search"
+              />
+              <a class="search-btn" id="searchBtn">
+                <i class="bi bi-search"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Single Product Area -->
+      <div
+        class="col-12 col-sm-12 col-md-6 col-xl-4 px-2"
+        *ngFor="let productEl of filterCategory | filter: searchKey:'name'"
+      >
+        <app-product-item [product]="productEl"> </app-product-item>
+      </div>
+      <div
+        class="w-100 d-flex justify-content-center align-items-center"
+        style="height: 500px"
+        *ngIf="!filterCategory"
+      >
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+    </div>
+  </div>
+</section>
