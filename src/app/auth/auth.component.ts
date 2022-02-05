@@ -2,7 +2,14 @@ import { NotifierService } from 'angular-notifier';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -21,19 +28,32 @@ export class AuthComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sinUpForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required]),
-      confirmPassword: new FormControl(null, [Validators.required]),
-    });
+    this.sinUpForm = new FormGroup(
+      {
+        email: new FormControl(null, [Validators.required, Validators.email]),
+        password: new FormControl(null, [Validators.required]),
+        confirmPassword: new FormControl(null, [Validators.required]),
+      },
+      { validators: this.checkPasswords }
+    );
     this.longInForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required]),
     });
   }
+
+  checkPasswords: ValidatorFn = (
+    group: AbstractControl
+  ): ValidationErrors | null => {
+    let password = group.get('password')?.value;
+    let confirmPassword = group.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { notSame: true };
+  };
+
   toggleForm() {
     this.isLoginMode = !this.isLoginMode;
   }
+
   onLogInSubmit() {
     if (!this.longInForm.valid) {
       return;
@@ -58,6 +78,7 @@ export class AuthComponent implements OnInit {
     );
     this.longInForm.reset();
   }
+
   onSignupSubmit() {
     if (!this.sinUpForm.valid) {
       return;
