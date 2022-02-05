@@ -242,3 +242,10 @@ h5 {
     max-width: 85%;
   }
 }
+::ng-deep.mat-drawer-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}

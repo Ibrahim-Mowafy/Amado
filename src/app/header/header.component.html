@@ -63,7 +63,7 @@
 
 <mat-drawer #drawer class="example-sidenav" mode="side">
   <div class="close-btn" (click)="drawer.close()">
-    <a >
+    <a>
       <i class="bi bi-x"></i>
     </a>
   </div>
@@ -88,7 +88,12 @@
         >Account
         <i class="bi bi-caret-down-fill"></i>
       </a>
-      <a *ngIf="!isAuthenticated" [routerLink]="['/auth']">Account</a>
+      <a
+        routerLinkActive="active"
+        *ngIf="!isAuthenticated"
+        [routerLink]="['/auth']"
+        >Account</a
+      >
     </li>
   </ul>
 </mat-drawer>

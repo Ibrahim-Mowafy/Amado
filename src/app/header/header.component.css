@@ -215,10 +215,10 @@ header .logo {
   content: "";
 }
 .example-sidenav ul li:hover a::before {
-  left: -66px;
+  left: -70px;
 }
 .example-sidenav ul li a.active::before {
-  left: -66px;
+  left: -70px;
 }
 .example-sidenav ul li a.active {
   color: #fbb710;
