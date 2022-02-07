@@ -54,7 +54,7 @@ import { OrdersComponent } from './orders/orders.component';
       position: {
         horizontal: {
           position: 'right',
-          distance: 50,
+          distance: 20,
         },
         vertical: {
           position: 'top',
