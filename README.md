@@ -1,10 +1,15 @@
-# Amado
+# Amado [(Live Project)](https://amado-e2d91.web.app/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
 
-## Important Links
-- [Live Project](https://amado-e2d91.web.app/)
-
+## Features
+- Authentication
+- Integrate with Firebase
+- Reactive Form Handler
+- Guard Routing
+- Angular Universal
+- Searching between products
+- Filtering products
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
